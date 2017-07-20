@@ -1,7 +1,7 @@
 # python training - FIR filtering sinusoidal signal with noise
 import matplotlib.pyplot as plt
 from scipy import signal
-import math
+from math import pi
 import numpy as np
 
 # simulation parameters
@@ -12,7 +12,7 @@ freq2 = 500                                       # [Hz]
 
 # data generation - 5 periods of signal 1
 t = np.arange(0, 5/freq1, 1/fs)
-y = np.sin(2 * math.pi * freq1 * t) + 0.3 * np.sin(2 * math.pi * freq2 * t)
+y = np.sin(2 * pi * freq1 * t) + 0.3 * np.sin(2 * pi * freq2 * t)
 
 # LowPass filter design, 255 taps, 250 Hz cutoff
 coeffs = signal.firwin(31, 250, nyq=fs/2)
