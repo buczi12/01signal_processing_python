@@ -4,5 +4,4 @@
 author: Bart³omiej Buczek
 
 2017-07-24 - > Phasor estimation with full cycle DFT added
-
-naxt aim: phasor estimation with half-cycle DFT 
+2017-07-25 -> half-cycle algorithm added
