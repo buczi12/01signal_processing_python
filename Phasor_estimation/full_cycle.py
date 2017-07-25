@@ -8,6 +8,7 @@ from scipy import signal
 
 # functions definitions
 
+
 def full_cycle(source, f_s, fn):
     freqs = [i + 1 for i in range(int(f_s/fn))]
     # real part coeffs
@@ -22,7 +23,26 @@ def full_cycle(source, f_s, fn):
     # magnitude estimation
     mag = abs(real + imag*1j)
     # phase estimation
-    pha = np.arctan(imag/real)
+    pha = 2 * np.arctan(imag/real)
+
+    return mag, pha
+
+
+def half_cycle(source, f_s, fn):
+    freqs = [2 * i for i in range(int(f_s/2/fn))]
+    # real part coeffs
+    re = [(2 * np.exp(freq * 1j * pi / (f_s/fn)) * np.sqrt(2) / (f_s/fn)).real for freq in freqs]
+    # imag part coeffs
+    im = [(2 * np.exp(freq * 1j * pi / (f_s/fn)) * np.sqrt(2) / (f_s/fn)).imag for freq in freqs]
+
+    # filtering - real and imag values estimation
+    real = signal.lfilter(re, [1], source)
+    imag = signal.lfilter(im, [1], source)
+
+    # magnitude estimation
+    mag = abs(real + imag*1j)
+    # phase estimation
+    pha = 2 * np.arctan(imag/real)
 
     return mag, pha
 
@@ -30,35 +50,40 @@ def full_cycle(source, f_s, fn):
 # Test data generation
 # Electrical system parameters
 f1 = 50                                           # [Hz]
-A = 110                                           # [kV]
+A = 110 * np.sqrt(2)                              # [kV]
 # sampling frequency
-fs = 5e3                                          # [Hz]
+fs = 2e3                                          # [Hz]
 t = np.arange(0, 1.5/f1, 1/fs)                    # [s]
 phi0 = 0                                          # [rad]
 # signal generation
 sig = A * np.sin(2 * pi * f1 * t + phi0)
 
 # choose estimation method
-magnitude, phase = full_cycle(sig, fs, f1)
+magnitude1, phase1 = half_cycle(sig, fs, f1)
+magnitude2, phase2 = full_cycle(sig, fs, f1)
 # theoretical RMS value for visualization
 rms = [A/np.sqrt(2) for k in range(len(t))]
 
 # Signals plots
-f, axarr = plt.subplots(2, sharex=True)
+plt.figure(1)
+plt.subplot(211)
+plot1, = plt.plot(1e3 * t, sig, label="original signal")
+plot3, = plt.plot(1e3 * t, magnitude1, 'g--', label="half-cycle")
+plot4, = plt.plot(1e3 * t, magnitude2, 'm--', label="full-cycle")
+plot2, = plt.plot(1e3 * t, rms, 'r', label="theoretical RMS value")
+plt.legend(handles=[plot1, plot2, plot3, plot4], loc=4)
+plt.title("RMS and phase estimation of 110kV sinusoid")
+plt.ylabel("Voltage [kV]")
+plt.xlabel("time [s]")
+plt.grid()
 
-plot1, = axarr[0].plot(1e3 * t, sig, label="Original signal")
-plot2, = axarr[0].plot(1e3 * t, magnitude, label="Estimated RMS value")
-plot3, = axarr[0].plot(1e3 * t, rms, 'r--', label="Theoretical RMS value")
-axarr[0].set_title('Full cycle magnitude & phase estimation - 110kV sinusoid')
-axarr[0].set_ylabel("Voltage [kV]")
-axarr[0].legend(handles=[plot1, plot2, plot3], loc=4)
-axarr[0].grid()
-axarr[0].axis([0, 1e3 * 1.5/f1, -115, 115])
+plt.subplot(212)
+plot1, = plt.plot(1e3 * t, phase1, 'g--', label="half-cycle")
+plot2, = plt.plot(1e3 * t, phase2, 'm--', label="full-cycle")
+plt.legend(handles=[plot1, plot2], loc=4)
+plt.xlabel("time [s]")
+plt.ylabel("Phase [rad]")
+plt.grid()
 
-
-axarr[1].plot(1e3 * t, phase)
-axarr[1].set_ylabel("Phase [rad]")
-axarr[1].grid()
-plt.xlabel("time [ms]")
 plt.show()
 
