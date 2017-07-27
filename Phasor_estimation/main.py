@@ -4,48 +4,7 @@
 from math import pi as pi
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy import signal
-
-# functions definitions
-
-
-def full_cycle(source, f_s, fn):
-    freqs = [i + 1 for i in range(int(f_s/fn))]
-    # real part coeffs
-    re = [(np.exp(freq * 2j * pi / (f_s/fn)) * np.sqrt(2) / (f_s/fn)).real for freq in freqs]
-    # imag part coeffs
-    im = [(np.exp(freq * 2j * pi / (f_s/fn)) * np.sqrt(2) / (f_s/fn)).imag for freq in freqs]
-
-    # filtering - real and imag values estimation
-    real = signal.lfilter(re, [1], source)
-    imag = signal.lfilter(im, [1], source)
-
-    # magnitude estimation
-    mag = abs(real + imag*1j)
-    # phase estimation
-    pha = 2 * np.arctan(imag/real)
-
-    return mag, pha
-
-
-def half_cycle(source, f_s, fn):
-    freqs = [2 * i for i in range(int(f_s/2/fn))]
-    # real part coeffs
-    re = [(2 * np.exp(freq * 1j * pi / (f_s/fn)) * np.sqrt(2) / (f_s/fn)).real for freq in freqs]
-    # imag part coeffs
-    im = [(2 * np.exp(freq * 1j * pi / (f_s/fn)) * np.sqrt(2) / (f_s/fn)).imag for freq in freqs]
-
-    # filtering - real and imag values estimation
-    real = signal.lfilter(re, [1], source)
-    imag = signal.lfilter(im, [1], source)
-
-    # magnitude estimation
-    mag = abs(real + imag*1j)
-    # phase estimation
-    pha = 2 * np.arctan(imag/real)
-
-    return mag, pha
-
+from modules import phasorestimation as pe
 
 # Test data generation
 # Electrical system parameters
@@ -59,8 +18,8 @@ phi0 = 0                                          # [rad]
 sig = A * np.sin(2 * pi * f1 * t + phi0)
 
 # choose estimation method
-magnitude1, phase1 = half_cycle(sig, fs, f1)
-magnitude2, phase2 = full_cycle(sig, fs, f1)
+magnitude1, phase1 = pe.half_cycle(sig, fs, f1)
+magnitude2, phase2 = pe.full_cycle(sig, fs, f1)
 # theoretical RMS value for visualization
 rms = [A/np.sqrt(2) for k in range(len(t))]
 
