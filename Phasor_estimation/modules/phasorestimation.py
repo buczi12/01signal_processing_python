@@ -2,6 +2,7 @@ from scipy import signal
 import numpy as np
 from math import pi as pi
 
+
 def full_cycle(source, f_s, fn):
     freqs = [i + 1 for i in range(int(f_s/fn))]
     # real part coeffs
@@ -16,7 +17,7 @@ def full_cycle(source, f_s, fn):
     # magnitude estimation
     mag = abs(real + imag*1j)
     # phase estimation
-    pha = 2 * np.arctan(imag/real)
+    pha = np.arctan2(imag, real)
 
     return mag, pha
 
@@ -35,6 +36,6 @@ def half_cycle(source, f_s, fn):
     # magnitude estimation
     mag = abs(real + imag*1j)
     # phase estimation
-    pha = 2 * np.arctan(imag/real)
+    pha = np.arctan2(imag, real)
 
     return mag, pha
