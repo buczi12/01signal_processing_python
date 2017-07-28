@@ -14,14 +14,26 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="full_cycle.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/full_cycle.py">
+    <leaf>
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+            <state relative-caret-position="17">
+              <caret line="2" column="59" lean-forward="false" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
               <folding>
                 <element signature="e#255#280#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="phasorestimation.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/modules/phasorestimation.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -41,6 +53,7 @@
       <find>signal</find>
       <find>res</find>
       <find>f1</find>
+      <find>legen</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -50,6 +63,8 @@
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_1.py" />
         <option value="$PROJECT_DIR$/full_cycle_fun.py" />
         <option value="$PROJECT_DIR$/full_cycle.py" />
+        <option value="$PROJECT_DIR$/modules/phasorestimation.py" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -62,7 +77,7 @@
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
-      <showMembers />
+      <showMembers ProjectPane="true" />
       <showModules />
       <showLibraryContents />
       <hideEmptyPackages />
@@ -74,6 +89,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -86,9 +102,22 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Phasor_estimation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Phasor_estimation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -96,7 +125,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="Python" />
   </component>
-  <component name="RunManager" selected="Python.full_cycle">
+  <component name="RunManager" selected="Python.main">
     <configuration default="false" name="full_cycle" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -110,6 +139,40 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Phasor_estimation" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/full_cycle.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Phasor_estimation" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="phasorestimation" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/modules" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Phasor_estimation" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/modules/phasorestimation.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -261,12 +324,16 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="1">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Python.full_cycle" />
+      <item index="1" class="java.lang.String" itemvalue="Python.main" />
+      <item index="2" class="java.lang.String" itemvalue="Python.phasorestimation" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.full_cycle" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Python.main" />
+        <item index="1" class="java.lang.String" itemvalue="Python.phasorestimation" />
+        <item index="2" class="java.lang.String" itemvalue="Python.full_cycle" />
       </list>
     </recent_temporary>
   </component>
@@ -308,16 +375,8 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/full_cycle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#255#280#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/full_cycle.py" />
+    <entry file="file://$PROJECT_DIR$/full_cycle.py" />
     <entry file="file://$PROJECT_DIR$/s.py" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_1.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -328,12 +387,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/full_cycle_fun.py" />
-    <entry file="file://$PROJECT_DIR$/full_cycle.py">
+    <entry file="file://$PROJECT_DIR$/full_cycle.py" />
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+        <state relative-caret-position="17">
+          <caret line="2" column="59" lean-forward="false" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
           <folding>
             <element signature="e#255#280#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/phasorestimation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
           </folding>
         </state>
       </provider>

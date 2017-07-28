@@ -39,3 +39,8 @@ def half_cycle(source, f_s, fn):
     pha = np.arctan2(imag, real)
 
     return mag, pha
+
+
+# for testing purposes
+if __name__ == '__main__':
+    print('Test message')

@@ -5,13 +5,16 @@ from math import pi as pi
 import numpy as np
 import matplotlib.pyplot as plt
 from modules import phasorestimation as pe
+import matplotlib.style as style
+
+style.use('ggplot')
 
 # Test data generation
 # Electrical system parameters
 f1 = 50                                           # [Hz]
 A = 110 * np.sqrt(2)                              # [kV]
 # sampling frequency
-fs = 2e3                                          # [Hz]
+fs = 1e3                                          # [Hz]
 t = np.arange(0, 2/f1, 1/fs)                    # [s]
 phi0 = 0                                          # [rad]
 # signal generation
@@ -28,14 +31,14 @@ rms = [A/np.sqrt(2) for k in range(len(t))]
 plt.figure(1)
 plt.subplot(211)
 plot1, = plt.plot(1e3 * t, sig, label="original signal")
-plot3, = plt.plot(1e3 * t, magnitude1, 'g--', label="half-cycle")
-plot4, = plt.plot(1e3 * t, magnitude2, 'm--', label="full-cycle")
+plot3, = plt.plot(1e3 * t, magnitude1, 'g--', label="half-cycle DFT")
+plot4, = plt.plot(1e3 * t, magnitude2, 'm--', label="full-cycle DFT")
 plot2, = plt.plot(1e3 * t, rms, 'r', label="theoretical RMS value")
 plt.legend(handles=[plot1, plot2, plot3, plot4], loc=4)
 plt.title("RMS and phase estimation of 110kV sinusoid")
 plt.ylabel("Voltage [kV]")
 plt.xlabel("time [ms]")
-plt.grid()
+# plt.grid()
 
 plt.subplot(212)
 plot1, = plt.plot(1e3 * t, phase1, 'g--', label="half-cycle")
@@ -43,7 +46,8 @@ plot2, = plt.plot(1e3 * t, phase2, 'm--', label="full-cycle")
 plt.legend(handles=[plot1, plot2], loc=4)
 plt.xlabel("time [ms]")
 plt.ylabel("Phase [rad]")
-plt.grid()
+# plt.grid()
 
+manager = plt.get_current_fig_manager()
+manager.window.showMaximized()
 plt.show()
-
