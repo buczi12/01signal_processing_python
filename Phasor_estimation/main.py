@@ -48,6 +48,7 @@ plt.xlabel("time [ms]")
 plt.ylabel("Phase [rad]")
 # plt.grid()
 
-manager = plt.get_current_fig_manager()
-manager.window.showMaximized()
+# fullsize figure - depends on matplotlib backend
+#manager = plt.get_current_fig_manager()
+#manager.window.showMaximized()
 plt.show()
