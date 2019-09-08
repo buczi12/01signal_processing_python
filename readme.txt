@@ -1,4 +1,4 @@
-% This folder contains Python scripts regarding signal processing
+% This folder contains Python scripts regarding signal processing.
 % with numpy pandas and matplotlib
 
 % author: Bartlomiej Buczek
